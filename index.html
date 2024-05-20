@@ -1,0 +1,268 @@
+To create a red, white, and blue theme for the website, we can adjust the CSS styles accordingly. Here’s the updated CSS with the new color scheme:
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Open House</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <meta name="description" content="Find local home services for your open house. Cleaning, moving, photography, staging, landscaping, and storage services all in one place.">
+  <meta name="keywords" content="open house, home services, cleaning, moving, photography, staging, landscaping, storage">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      color: #333;
+    }
+    header {
+      background-color: #FF0000; /* Red background */
+      color: white;
+      padding: 10px 0;
+      width: 100%;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    header .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: auto;
+      padding: 0 20px;
+    }
+    header img {
+      max-width: 50px;
+    }
+    header nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 10px;
+      font-weight: 500;
+    }
+    .hero {
+      background-color: #0000FF; /* Blue background */
+      padding: 50px 20px;
+      text-align: center;
+      width: 100%;
+    }
+    .hero h1, .hero p {
+      color: white;
+    }
+    #map {
+      height: 300px;
+      width: 80%;
+      margin: 20px auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    .container {
+      text-align: center;
+      padding: 20px;
+      border: 2px solid #ccc;
+      border-radius: 10px;
+      margin: 20px auto;
+      width: 80%;
+      background-color: #fff;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      color: black;
+    }
+    .sub-header {
+      background-color: #FF0000; /* Red background */
+      border: 2px solid #FF0000; /* Red border */
+      color: white;
+      padding: 20px;
+      margin: 20px 0;
+      border-radius: 10px;
+      width: 80%;
+      text-align: center;
+    }
+    .search-bar {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 20px 0;
+    }
+    .search-bar input, .search-bar select {
+      padding: 10px;
+      margin: 5px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      width: 300px;
+    }
+    .search-bar button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      background-color: #0000FF; /* Blue background */
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      margin-top: 10px;
+    }
+    .search-bar button:hover {
+      background-color: #000099; /* Darker blue on hover */
+    }
+    .results, .selected-companies {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      border: 2px solid #ccc;
+      width: 80%;
+      margin: 20px auto;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      display: none;
+    }
+    .results.visible, .selected-companies.visible {
+      display: block;
+    }
+    .sidebar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      padding: 20px;
+      width: 80%;
+      display: none; /* Hide sidebar initially */
+    }
+    .sidebar.visible {
+      display: flex; /* Show sidebar when visible */
+    }
+    .service-banner {
+      display: flex;
+      align-items: center;
+      padding: 10px;
+      margin: 5px 0;
+      border-radius: 5px;
+      background-color: #e0f7fa; /* Light background color for the banner */
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      width: 30%;
+      box-sizing: border-box;
+    }
+    .service-banner img {
+      max-width: 30px;
+      margin-right: 10px;
+    }
+    .service-banner label {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      cursor: pointer;
+      color: #333;
+    }
+    .service-banner input[type="checkbox"] {
+      margin-right: 10px;
+    }
+    .centered-button, .new-search {
+      text-align: center;
+      width: 100%;
+      margin-top: 10px;
+    }
+    .centered-button button, .new-search {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      background-color: #0000FF; /* Blue background */
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      text-decoration: none;
+    }
+    .centered-button button:hover, .new-search:hover {
+      background-color: #000099; /* Darker blue on hover */
+    }
+    .footer {
+      background-color: #FF0000; /* Red background */
+      color: white;
+      padding: 20px 0;
+      width: 100%;
+      text-align: center;
+    }
+    .footer p {
+      margin: 5px 0;
+    }
+    .footer a {
+      color: white;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+    .loading-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.8);
+      z-index: 9999;
+      justify-content: center;
+      align-items: center;
+    }
+    .loading-overlay.visible {
+      display: flex;
+    }
+    .loading-spinner {
+      border: 16px solid #f3f3f3;
+      border-top: 16px solid #0000FF; /* Blue spinner */
+      border-radius: 50%;
+      width: 120px;
+      height: 120px;
+      animation: spin 2s linear infinite;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.4);
+      padding-top: 60px;
+    }
+    .modal-content {
+      background-color: #fefefe;
+      margin: 5% auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 80%;
+      max-width: 400px;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    .modal-content input[type="text"], .modal-content input[type="email"] {
+      width: 80%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .modal-content button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      background-color: #0000FF; /* Blue background */
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .modal-content button:hover {
+      background-color: #000099; /* Darker blue on hover */
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="logo">
+        <img src="https://github.com/CPOMalley/XYZ.github.io/blob/main
